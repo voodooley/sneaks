@@ -81,14 +81,59 @@ a {
   border-radius: 4px;
   font: 400 16px / 100% var(--font-family);
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &--primary {
     background-color: var(--color-accent);
     color: var(--color-white);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     
     &:hover {
       background-color: var(--color-accent-hover);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--color-text);
+    color: var(--color-white);
+    
+    &:hover {
+      background-color: var(--color-text-hover);
+    }
+  }
+}
+
+.title {
+  margin: 0;
+  margin-bottom: var(--main-offset);
+  font: var(--middle-high-font);
+  line-height: 1;
+  color: var(--color-text);
+}
+
+@import "mixins";
+
+.custom-checkbox {
+  @include custom-checkbox;
+
+  &__content {
+    font: var(--middle-font);
+    color: var(--color-text);
+    padding-left: 35px;
+
+    &::before {
+      top: -3px;
+      border-color: var(--color-cameo);
+      border-radius: 4px;
+      width: 24px;
+      height: 24px;
+    }
+
+    &::after {
+      top: -3px;
+      width: 24px;
+      height: 24px;
+      background-image: url("../img/check.svg");
+      background-size: 15px 12px;
     }
   }
 }

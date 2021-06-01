@@ -5,16 +5,24 @@
   --color-accent: #f14f4f;
   --color-accent-hover: #cc4949;
   --color-border: rgba(255, 255, 255, 0.5);
+  --color-text: #444b58;
+  --color-text-hover: #31343c;
+  --color-bg: #fff4ee;
+  --color-cameo: #dbbba9;
 
   //отступы
   --grid-gap: 20px;
+  --big-offset: 60px;
   --main-offset: 40px;
   --second-offset: 20px;
+  --small-offset: 10px;
 
   --font-family: "Intro", sans-serif;
   --font-family-book: "Intro Book", sans-serif;
   --middle-high-font: 700 30px / 140% var(--font-family);
-  --middle-font: 400 16px / 140% var(--font-family-book);
+  --middle-font: 400 16px / 100% var(--font-family-book);
   --small-font: 400 14px / 140% var(--font-family-book);
+  --font-price: 400 20px/ 100%  var(--font-family);
+  --font-h3: 400 24px / 100% var(--font-family-book);
 
 }
