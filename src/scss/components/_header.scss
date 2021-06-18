@@ -1,35 +1,37 @@
 .header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--color-eastbay);
 
-    &__container {
-        --paddings: 15px;
-        position: relative;
-        align-items: center;
-        padding: var(--second-offset) var(--paddings);
+  &__container {
+    --paddings: 15px;
+    position: relative;
+    align-items: center;
+    padding: var(--second-offset) var(--paddings);
 
-        &::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: calc(100% - (var(--paddings) * 2));
-            height: 1px;
-            background-color: var(--color-border);
-            transform: translateX(-50%);
-        }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: calc(100% - (var(--paddings) * 2));
+      height: 1px;
+      background-color: var(--color-border);
+      transform: translateX(-50%);
     }
+  }
 
-    &__left {
-        grid-column: 2 span;
-    }
+  &__left {
+    grid-column: 2 span;
+  }
 
-    &__right {
-        display: flex;
-        justify-content: flex-end;
-        grid-column: 10 span;
-    }
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    grid-column: 10 span;
+  }
 }
