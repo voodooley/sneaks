@@ -11,7 +11,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "asd", sans-serif;
+  font-family: 'asd', sans-serif;
   background-color: var(--color-white);
 }
 
@@ -137,7 +137,7 @@ a {
   color: var(--color-text);
 }
 
-@import "mixins";
+@import 'mixins';
 
 .custom-checkbox {
   @include custom-checkbox;
@@ -159,8 +159,75 @@ a {
       top: -3px;
       width: 24px;
       height: 24px;
-      background-image: url("../img/check.svg");
+      background-image: url('../img/check.svg');
       background-size: 15px 12px;
     }
   }
+}
+
+.tooltip {
+  position: relative;
+  margin-left: var(--small-offset);
+}
+
+.tooltip__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  box-shadow: 2px 4px 10px rgba(0, 13, 84, 0.2);
+  background: var(--color-white);
+
+  svg {
+    width: 6px;
+    height: 10px;
+  }
+}
+
+.tooltip__txt {
+  position: absolute;
+  left: -15px;
+  bottom: calc(100% + 14px);
+  z-index: 3;
+  border-radius: 4px;
+  box-shadow: 4px 8px 20px rgba(0, 13, 84, 0.2);
+  padding: var(--small-offset) var(--second-offset);
+  width: max-content;
+  max-width: 426px;
+  font: var(--small-font);
+  color: var(--color-text);
+  background: var(--color-white);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  text-transform: initial;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    bottom: -8px;
+    width: 0;
+    height: 0;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 10px 8px 0;
+    border-color: var(--color-white) transparent transparent transparent;
+  }
+}
+
+.tooltip__btn:hover + .tooltip__txt {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tooltip__btn:focus + .tooltip__txt {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }

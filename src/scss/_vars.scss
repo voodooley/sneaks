@@ -11,6 +11,7 @@
   --color-cameo: #dbbba9;
   --color-gray: #b2b5bb;
   --color-quiz: #808080;
+  --color-contact: #f3f6f6;
 
   //отступы
   --grid-gap: 20px;
@@ -21,9 +22,10 @@
 
   --font-family: 'Intro', sans-serif;
   --font-family-book: 'Intro Book', sans-serif;
-  --middle-font: 400 16px / 130% var(--font-family-book);
+  --middle-l-font: 400 18px / 140% var(--font-family-book);
+  --middle-font: 400 16px / 140% var(--font-family-book);
   --small-font: 400 14px / 140% var(--font-family-book);
-  --font-price: 400 20px/ 100% var(--font-family);
-  --font-h2: 700 30px / 100% var(--font-family);
-  --font-h3: 400 24px / 100% var(--font-family-book);
+  --font-price: 400 20px/ 140% var(--font-family);
+  --font-h2: 700 30px / 140% var(--font-family);
+  --font-h3: 400 24px / 140% var(--font-family-book);
 }
