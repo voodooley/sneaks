@@ -1,0 +1,25 @@
+.footer {
+  padding: 28px 0;
+  background-color: var(--color-text);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left {
+  }
+
+  &__logo {
+  }
+
+  &__right {
+  }
+
+  &__nav {
+  }
+
+  &__cart {
+  }
+}

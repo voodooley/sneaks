@@ -3,9 +3,14 @@
   background-color: var(--color-contact);
 
   &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
   &__text {
+    margin-right: var(--second-offset);
+    width: calc(100% - (680px + var(--second-offset)));
   }
 
   &__title {
@@ -39,6 +44,8 @@
   }
 
   &__map {
+    width: 680px;
+    height: 500px;
   }
 }
 
