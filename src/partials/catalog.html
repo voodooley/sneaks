@@ -1,266 +1,102 @@
 <section class="catalog">
-    <div class="container catalog__container">
-        <h2 class="title catalog__title">Каталог</h2>
-        <div class="catalog__content grid">
-            <div class="catalog__left">
-                <div class="catalog-filters">
-                    <h3 class="catalog__subtitle">Подбор по параметрам</h3>
-                    <div class="catalog__prop">
-                        <strong class="catalog__caption">Цена, руб</strong>
-                        <div class="catalog-price catalog__prop-inner">
-                            <div class="catalog-price__wrapper">
-                                <input type="text" class="catalog-price__input" id="input-0">
-                                <input type="text" class="catalog-price__input" id="input-1">
-                            </div>                       
-                            <div class="catalog-price__element" id="range-slider"></div>
-                        </div>
-                    </div>
-                    <div class="catalog__prop">
-                        <strong class="catalog__caption">Пол</strong>
-                        <div class="catalog__prop-inner catalog__prop-checkboxes">
-                            <label class="custom-checkbox">
-                                <input type="checkbox" class="custom-checkbox__field">
-                                <span class="custom-checkbox__content">мужской</span>
-                            </label>
-                            <label class="custom-checkbox">
-                                <input type="checkbox" class="custom-checkbox__field">
-                                <span class="custom-checkbox__content">женский</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="catalog__prop">
-                        <strong class="catalog__caption">Размер</strong>
-                        <div class="catalog__prop-inner">
-                            <table class="sizes-table">
-                                <caption>Таблица размеров</caption>
-                                <tbody>
-                                    <tr>
-                                        <td>35</td>
-                                        <td>36</td>
-                                        <td>37</td>
-                                    </tr>
-                                    <tr>
-                                        <td>38</td>
-                                        <td>39</td>
-                                        <td>40</td>
-                                    </tr>
-                                    <tr>
-                                        <td>41</td>
-                                        <td>42</td>
-                                        <td>43</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="catalog-filters__btns">
-                        <button class="btn btn-reset catalog__apply btn--secondary">Применить</button>
-                    <button class="btn-reset catalog__reset">Сбросить</button>
-                    </div>
-                </div>           
+  <div class="container catalog__container">
+    <h2 class="title catalog__title">Каталог</h2>
+    <div class="catalog__content grid">
+      <div class="catalog__left">
+        <div class="catalog-filters">
+          <h3 class="catalog__subtitle">Подбор по параметрам</h3>
+          <div class="catalog__prop">
+            <strong class="catalog__caption">Цена, руб</strong>
+            <div class="catalog-price catalog__prop-inner">
+              <div class="catalog-price__wrapper">
+                <input type="text" class="catalog-price__input" id="input-0" />
+                <input type="text" class="catalog-price__input" id="input-1" />
+              </div>
+              <div class="catalog-price__element" id="range-slider"></div>
             </div>
-            <div class="catalog__grid">
-                <ul class="catalog-list list-reset grid">
-                    <li class="catalog-list__item">
-                        <article class="product">
-                            <div class="product__image">
-                                <img src="img/superstar.jpg" alt="Продукт 1">
-                                <div class="product__btns">
-                                    <button class="btn-reset product__btn" aria-label="Показать информацию о товаре">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#eye"></use>
-                                          </svg>
-                                    </button>
-                                    <button class="btn-reset product__btn" aria-label="Добавить товар в корзину">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#cart"></use>
-                                          </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <h3 class="product__title">Кроссовки Superstar</h3>
-                            <span class="product__price">8399 р</span>
-                        </article>
-                    </li>
-                    <li class="catalog-list__item">
-                        <article class="product">
-                            <div class="product__image">
-                                <img src="img/adidas-zx-1k-boost.jpg" alt="Adidas">
-                                <div class="product__btns">
-                                    <button class="btn-reset product__btn" aria-label="Показать информацию о товаре">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#eye"></use>
-                                          </svg>
-                                    </button>
-                                    <button class="btn-reset product__btn" aria-label="Добавить товар в корзину">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#cart"></use>
-                                          </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <h3 class="product__title">Кроссовки ZX 1K BOOST</h3>
-                            <span class="product__price">5999 р</span>
-                        </article>
-                    </li>
-
-                    <li class="catalog-list__item">
-                        <article class="product">
-                            <div class="product__image">
-                                <img src="img/campus.jpg" alt="Campus">
-                                <div class="product__btns">
-                                    <button class="btn-reset product__btn" aria-label="Показать информацию о товаре">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#eye"></use>
-                                          </svg>
-                                    </button>
-                                    <button class="btn-reset product__btn" aria-label="Добавить товар в корзину">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#cart"></use>
-                                          </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <h3 class="product__title">Кроссовки Campus</h3>
-                            <span class="product__price">4399 р</span>
-                        </article>
-                    </li>
-
-                    <li class="catalog-list__item">
-                        <article class="product">
-                            <div class="product__image">
-                                <img src="img/Stan_Smith.jpg" alt="Продукт 1">
-                                <div class="product__btns">
-                                    <button class="btn-reset product__btn" aria-label="Показать информацию о товаре">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#eye"></use>
-                                          </svg>
-                                    </button>
-                                    <button class="btn-reset product__btn" aria-label="Добавить товар в корзину">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#cart"></use>
-                                          </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <h3 class="product__title">Кроссовки Stan Smith</h3>
-                            <span class="product__price">8399 р</span>
-                        </article>
-                    </li>
-
-                    <li class="catalog-list__item">
-                        <article class="product">
-                            <div class="product__image">
-                                <img src="img/zx_2k_boost.jpg" alt="ZX 2K BOOST">
-                                <div class="product__btns">
-                                    <button class="btn-reset product__btn" aria-label="Показать информацию о товаре">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#eye"></use>
-                                          </svg>
-                                    </button>
-                                    <button class="btn-reset product__btn" aria-label="Добавить товар в корзину">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#cart"></use>
-                                          </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <h3 class="product__title">Кроссовки ZX 2K BOOST</h3>
-                            <span class="product__price">12999 р</span>
-                        </article>
-                    </li>
-
-                    <li class="catalog-list__item">
-                        <article class="product">
-                            <div class="product__image">
-                                <img src="img/ozweego_pure.jpg" alt="Продукт 1">
-                                <div class="product__btns">
-                                    <button class="btn-reset product__btn" aria-label="Показать информацию о товаре">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#eye"></use>
-                                          </svg>
-                                    </button>
-                                    <button class="btn-reset product__btn" aria-label="Добавить товар в корзину">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#cart"></use>
-                                          </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <h3 class="product__title">Кроссовки Ozweego Pure</h3>
-                            <span class="product__price">9999 р</span>
-                        </article>
-                    </li>
-
-                    <li class="catalog-list__item">
-                        <article class="product">
-                            <div class="product__image">
-                                <img src="img/4d_fusio.jpg" alt="Продукт 1">
-                                <div class="product__btns">
-                                    <button class="btn-reset product__btn" aria-label="Показать информацию о товаре">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#eye"></use>
-                                          </svg>
-                                    </button>
-                                    <button class="btn-reset product__btn" aria-label="Добавить товар в корзину">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#cart"></use>
-                                          </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <h3 class="product__title">Кроссовки 4D Fusio</h3>
-                            <span class="product__price">17999 р</span>
-                        </article>
-                    </li>
-
-                    <li class="catalog-list__item">
-                        <article class="product">
-                            <div class="product__image">
-                                <img src="img/nmd_r1_Primeknit.jpg" alt="NMD R1 Primeknit">
-                                <div class="product__btns">
-                                    <button class="btn-reset product__btn" aria-label="Показать информацию о товаре">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#eye"></use>
-                                          </svg>
-                                    </button>
-                                    <button class="btn-reset product__btn" aria-label="Добавить товар в корзину">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#cart"></use>
-                                          </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <h3 class="product__title">Кроссовки NMD R1 Primeknit</h3>
-                            <span class="product__price">15999 р</span>
-                        </article>
-                    </li>
-
-                    <li class="catalog-list__item">
-                        <article class="product">
-                            <div class="product__image">
-                                <img src="img/zx_500.jpg" alt="Продукт 1">
-                                <div class="product__btns">
-                                    <button class="btn-reset product__btn" aria-label="Показать информацию о товаре">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#eye"></use>
-                                          </svg>
-                                    </button>
-                                    <button class="btn-reset product__btn" aria-label="Добавить товар в корзину">
-                                        <svg>
-                                            <use xlink:href="img/sprite.svg#cart"></use>
-                                          </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <h3 class="product__title">Кроссовки ZX 500</h3>
-                            <span class="product__price">8999 р</span>
-                        </article>
-                    </li>
-                </ul>
-                <button class="btn btn-reset btn--primary catalog__more">Показать еще</button>
+          </div>
+          <div class="catalog__prop">
+            <strong class="catalog__caption">Пол</strong>
+            <div class="catalog__prop-inner catalog__prop-checkboxes">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="custom-checkbox__field" />
+                <span class="custom-checkbox__content">мужской</span>
+              </label>
+              <label class="custom-checkbox">
+                <input type="checkbox" class="custom-checkbox__field" />
+                <span class="custom-checkbox__content">женский</span>
+              </label>
             </div>
+          </div>
+          <div class="catalog__prop">
+            <strong class="catalog__caption">Размер</strong>
+            <div class="catalog__prop-inner">
+              <table class="sizes-table">
+                <caption>
+                  Таблица размеров
+                </caption>
+                <tbody>
+                  <tr>
+                    <td>35</td>
+                    <td>36</td>
+                    <td>37</td>
+                  </tr>
+                  <tr>
+                    <td>38</td>
+                    <td>39</td>
+                    <td>40</td>
+                  </tr>
+                  <tr>
+                    <td>41</td>
+                    <td>42</td>
+                    <td>43</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="catalog-filters__btns">
+            <button class="btn btn-reset catalog__apply btn--secondary">
+              Применить
+            </button>
+            <button class="btn-reset catalog__reset">Сбросить</button>
+          </div>
         </div>
-        
+      </div>
+      <div class="catalog__grid">
+        <ul class="catalog-list list-reset grid">
+          <li class="catalog-list__item">
+            <article class="product">
+              <div class="product__image">
+                <img src="img/superstar.jpg" alt="Продукт 1" />
+                <div class="product__btns">
+                  <button
+                    class="btn-reset product__btn"
+                    aria-label="Показать информацию о товаре"
+                  >
+                    <svg>
+                      <use xlink:href="img/sprite.svg#eye"></use>
+                    </svg>
+                  </button>
+                  <button
+                    class="btn-reset product__btn"
+                    aria-label="Добавить товар в корзину"
+                  >
+                    <svg>
+                      <use xlink:href="img/sprite.svg#cart"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <h3 class="product__title">Кроссовки Superstar</h3>
+              <span class="product__price">8399 р</span>
+            </article>
+          </li>
+        </ul>
+        <button class="btn btn-reset btn--primary catalog__more">
+          Показать еще
+        </button>
+      </div>
     </div>
+  </div>
 </section>

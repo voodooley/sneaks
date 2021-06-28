@@ -1,73 +1,75 @@
 .about {
-    position: relative;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-eastbay);
+  height: 580px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__image {
+    flex-shrink: 0;
     overflow: hidden;
-    background-color: var(--color-eastbay);
-    height: 580px;
+    clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
+    width: 680px;
+    height: 100%;
 
-    &__container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
+    img {
+      object-fit: cover;
     }
+  }
 
-    &__image {
-        flex-shrink: 0;
-        overflow: hidden;
-        clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
-        width: 680px;
-     
-        img {
-            object-fit: cover;
-        }
+  &__text {
+    width: 34%;
+    transform: translateY(30px);
+  }
+
+  &__title {
+    margin-bottom: var(--second-offset);
+    color: var(--color-white);
+  }
+
+  &__descr {
+    font: var(--middle-font);
+    line-height: 1.4;
+    color: var(--color-white);
+  }
+
+  &__quote {
+    font: inherit;
+    display: inline-block;
+    margin-bottom: var(--second-offset);
+
+    &::before,
+    &::after {
+      display: none;
     }
+  }
 
-    &__text {
-        width: 34%;
-        transform: translateY(30px);
+  &__author {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font: var(--font-price);
+    transform: translateX(30px);
+
+    &::before {
+      content: '';
+      display: inline-block;
+      margin-right: var(--second-offset);
+      width: 30px;
+      height: 3px;
+      background-color: var(--color-white);
     }
+  }
 
-    &__title {
-        margin-bottom: var(--second-offset);
-        color: var(--color-white);
-    }
-
-    &__descr {
-        font: var(--middle-font);
-        line-height: 1.4;
-        color: var(--color-white);
-    }
-
-    &__quote {
-        font: inherit;
-        display: inline-block;
-        margin-bottom: var(--second-offset);
-
-        &::before, &::after {
-            display: none;
-        }
-    }
-
-    &__author {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        font: var(--font-price);
-        transform: translateX(30px);
-
-        &::before {
-            content: "";
-            display: inline-block;
-            margin-right: var(--second-offset);
-            width: 30px;
-            height: 3px;
-            background-color: var(--color-white);
-        }
-    }
-
-    &__figure {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+  &__figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
