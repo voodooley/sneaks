@@ -11,6 +11,7 @@ const prodModalChars = prodModal.querySelector('.prod-chars')
 const prodModalVideo = prodModal.querySelector('.prod-modal__video')
 let prodQuantity = 9
 let dataLength = null
+let modal = null
 
 const normalPrice = (str) => {
   return String(str).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')
@@ -56,8 +57,9 @@ if (catalogList) {
                     </svg>
                   </button>
                   <button
-                    class="btn-reset product__btn"
+                    class="btn-reset product__btn add-to-cart-btn"
                     aria-label="Добавить товар в корзину"
+                    data-id="${item.id}"
                   >
                     <svg>
                       <use xlink:href="img/sprite.svg#cart"></use>
@@ -81,13 +83,17 @@ if (catalogList) {
           $clamp(el, { clamp: '22px' })
         })
 
-        const modal = new GraphModal({
+        cartLogic()
+
+        modal = new GraphModal({
           isOpen: (modal) => {
-            const openBtnId = modal.previousActiveElement.dataset.id
+            if (modal.modalContainer.classList.contains('prod-modal')) {
+              const openBtnId = modal.previousActiveElement.dataset.id
 
-            loadModalData(openBtnId)
+              loadModalData(openBtnId)
 
-            prodSlider.update()
+              prodSlider.update()
+            }
           },
         })
       })
@@ -242,6 +248,145 @@ if (catalogList) {
       catalogMore.style.display = 'none'
     } else {
       catalogMore.style.display = 'block'
+    }
+  })
+}
+
+//работа с корзиной
+let price = 0
+const miniCartList = document.querySelector('.mini-cart__list')
+const fullPrice = document.querySelector('.mini-cart__total')
+const cartCount = document.querySelector('.cart__count')
+
+const priceWithoutSpaces = (str) => {
+  return str.replace(/\s/g, '')
+}
+
+const plusFullPrice = (currentPrice) => {
+  return (price += currentPrice)
+}
+
+const minusFullPrice = (currentPrice) => {
+  return (price -= currentPrice)
+}
+
+const printFullPrice = () => {
+  fullPrice.textContent = `${normalPrice(price)} р`
+}
+
+const printQuantity = (num) => {
+  cartCount.textContent = num
+}
+
+const loadCartData = (id = null) => {
+  if (id) {
+    fetch('../data/sorted50.json')
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        for (let dataItem of data) {
+          if (dataItem.id == id) {
+            // console.log(dataItem)
+            miniCartList.insertAdjacentHTML(
+              'afterbegin',
+              `
+                  <li class="mini-cart__item" data-id="${dataItem.id}">
+                      <article class="mini-cart__product mini-product">
+                        <div class="mini-product__image">
+                          <img src="./data/images/${
+                            dataItem.gallery[0]
+                          }" alt="${dataItem.product_name}" />
+                        </div>
+
+                        <div class="mini-product__content">
+                          <div class="mini-product__info">
+                            <h3 class="mini-product__title">
+                            ${dataItem.product_name}
+                            </h3>
+                            <span class="mini-product__price">${normalPrice(
+                              dataItem.pricing_information['currentPrice']
+                            )} р</span>
+                          </div>
+                          <button
+                            class="btn-reset mini-product__delete"
+                            aria-label="Удалить товар"
+                          >
+                            <svg>
+                              <use xlink:href="img/sprite.svg#trash"></use>
+                            </svg>
+                          </button>
+                        </div>
+                      </article>
+                    </li>
+            `
+            )
+
+            return dataItem
+          }
+        }
+      })
+      .then((item) => {
+        plusFullPrice(item.pricing_information['currentPrice'])
+        printFullPrice()
+
+        let num = document.querySelectorAll(
+          '.mini-cart__list .mini-cart__item'
+        ).length
+
+        if (num > 0) {
+          cartCount.classList.add('cart__count--visible')
+        }
+
+        printQuantity(num)
+      })
+  }
+}
+
+const cartLogic = () => {
+  const productBtn = document.querySelectorAll('.add-to-cart-btn')
+
+  productBtn.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      const id = e.currentTarget.dataset.id
+      loadCartData(id)
+
+      e.currentTarget.classList.add('product__btn--disabled')
+    })
+  })
+
+  miniCartList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mini-product__delete')) {
+      const self = e.target
+      const parent = self.closest('.mini-cart__item')
+      const price = parseInt(
+        priceWithoutSpaces(
+          parent.querySelector('.mini-product__price').textContent
+        )
+      )
+      const id = parent.dataset.id
+
+      console.log(document.querySelector(`.product__btn[data-id="${id}"]`))
+
+      document
+        .querySelector(`.add-to-cart-btn[data-id="${id}"]`)
+        .classList.remove('product__btn--disabled')
+
+      parent.remove()
+
+      minusFullPrice(price)
+      printFullPrice()
+
+      let num = document.querySelectorAll(
+        '.mini-cart__list .mini-cart__item'
+      ).length
+
+      if (num == 0) {
+        cartCount.classList.remove('cart__count--visible')
+        miniCart.classList.remove('mini-cart--visible')
+      }
+
+      printQuantity(num)
     }
   })
 }

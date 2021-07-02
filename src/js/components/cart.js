@@ -8,7 +8,7 @@ cartBtn.addEventListener('click', () => {
 document.addEventListener('click', (el) => {
   if (
     !el.target.classList.contains('mini-cart') &&
-    !el.target.closest('.mini-cart') &&
+    el.target.closest('.mini-cart') &&
     !el.target.classList.contains('cart__btn')
   ) {
     miniCart.classList.remove('mini-cart--visible')
