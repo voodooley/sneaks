@@ -81,13 +81,25 @@
       height: 7px;
       fill: currentColor;
       object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &--active {
+      svg {
+        transform: rotate(180deg);
+      }
     }
   }
 
   &__list {
+    display: none;
+
+    &--visible {
+      display: block;
+    }
   }
 
-  &__item {
+  .mini-cart__item {
     &:not(:last-child) {
       margin-bottom: 14px;
     }
@@ -97,60 +109,67 @@
   }
 }
 
-.cart-modal-product {
-  display: flex;
-  align-items: center;
-
-  &__image {
-    flex-shrink: 0;
-    margin-right: var(--small-offset);
-    width: 80px;
-    height: 46px;
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__content {
+.cart-modal {
+  .mini-product {
     display: flex;
     align-items: center;
-    flex-grow: 1;
-  }
+    padding: 0;
 
-  &__info {
-    margin-right: auto;
-    max-width: 290px;
-  }
+    &__image {
+      flex-shrink: 0;
+      margin-right: var(--small-offset);
+      width: 80px;
+      height: 46px;
 
-  &__title {
-    margin: 0;
-    margin-bottom: var(--small-offset);
-    font: var(--small-font);
-    line-height: 1;
-    color: var(--color-text);
-  }
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
 
-  &__price {
-    font: var(--font-price);
-    line-height: 1;
-    color: #4d4d4d;
-  }
+    &__content {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
 
-  &__btn {
-    margin-left: 7px;
-    font: var(--small-font);
-    color: var(--color-gray);
-    transition: color 0.3s ease-in-out;
+    &__info {
+      margin-right: auto;
+      max-width: 290px;
+    }
 
-    &:hover {
-      color: var(--color-accent);
+    &__title {
+      margin: 0;
+      margin-bottom: var(--small-offset);
+      font: var(--small-font);
+      line-height: 1;
+      color: var(--color-text);
+    }
+
+    &__price {
+      font: var(--font-price);
+      line-height: 1;
+      color: #4d4d4d;
+    }
+
+    &__delete {
+      width: auto;
+      height: auto;
+      margin-left: 7px;
+      font: var(--small-font);
+      color: var(--color-gray);
       transition: color 0.3s ease-in-out;
+
+      svg {
+        display: none;
+      }
+
+      &:hover {
+        color: var(--color-accent);
+        transition: color 0.3s ease-in-out;
+      }
     }
   }
-}
-.input {
 }

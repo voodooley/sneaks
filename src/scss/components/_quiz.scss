@@ -46,6 +46,17 @@
       margin-bottom: var(--small-offset);
     }
   }
+
+  &__message {
+    width: 465px;
+    height: 246px;
+    padding: var(--second-offset);
+    background-color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    resize: none;
+    color: var(--color-cameo);
+  }
 }
 
 .quiz-questions {
@@ -60,6 +71,55 @@
   padding-top: var(--second-offset);
 }
 
-.quiz-asd {
+.last-question {
   display: none;
+  padding-top: var(--second-offset);
+
+  &__form {
+    position: relative;
+    padding: var(--main-offset);
+    border-radius: 4px;
+    max-width: 655px;
+    background: var(--color-cameo);
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: var(--small-offset);
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--color-white);
+    line-height: 140%;
+  }
+
+  &__descr {
+    margin: 0;
+    margin-bottom: 24px;
+    font-family: var(--font-family-book);
+    font-size: 18px;
+    line-height: 140%;
+    color: var(--color-white);
+  }
+
+  &__input {
+    max-width: 500px;
+
+    &:not(:last-of-type) {
+      margin-bottom: var(--small-offset);
+    }
+    &:last-of-type {
+      margin-bottom: var(--second-offset);
+    }
+  }
+
+  &__btn {
+    min-width: 220px;
+  }
+
+  &__decorate {
+    position: absolute;
+    top: -10px;
+    right: -185px;
+  }
 }

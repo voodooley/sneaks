@@ -239,6 +239,7 @@ if (catalogList) {
         })
     }
   }
+
   catalogMore.addEventListener('click', (event) => {
     prodQuantity += 9
 
@@ -312,6 +313,7 @@ const loadCartData = (id = null) => {
                             class="btn-reset mini-product__delete"
                             aria-label="Удалить товар"
                           >
+                          Удалить
                             <svg>
                               <use xlink:href="img/sprite.svg#trash"></use>
                             </svg>
@@ -378,7 +380,7 @@ const cartLogic = () => {
       printFullPrice()
 
       let num = document.querySelectorAll(
-        '.mini-cart__list .mini-cart__item'
+        '.cart-modal-order__list .mini-cart__item'
       ).length
 
       if (num == 0) {
@@ -390,3 +392,32 @@ const cartLogic = () => {
     }
   })
 }
+
+const openOrderModal = document.querySelector('.mini-cart__btn')
+const orderModalList = document.querySelector('.cart-modal-order__list')
+const orderModalQuantity = document.querySelector(
+  '.cart-modal-order__counts span'
+)
+const orderModalTotal = document.querySelector('.cart-modal-order__total span')
+const orderModalShow = document.querySelector('.cart-modal-order__show')
+
+openOrderModal.addEventListener('click', () => {
+  const productsHtml = document.querySelector('.mini-cart__list').innerHTML
+  orderModalList.innerHTML = productsHtml
+
+  orderModalQuantity.textContent = `${
+    document.querySelectorAll('.mini-cart__list .mini-cart__item').length
+  } шт`
+
+  orderModalTotal.textContent = fullPrice.textContent
+})
+
+orderModalShow.addEventListener('click', () => {
+  if (orderModalList.classList.contains('cart-modal-order__list--visible')) {
+    orderModalList.classList.remove('cart-modal-order__list--visible')
+    orderModalShow.classList.remove('cart-modal-order__show--active')
+  } else {
+    orderModalList.classList.add('cart-modal-order__list--visible')
+    orderModalShow.classList.add('cart-modal-order__show--active')
+  }
+})
